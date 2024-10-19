@@ -1,0 +1,58 @@
+<section id="hero" class="hero-section">
+  <div class="hero-content">
+      <h1>Friends of Six</h1>
+      <p>Join us on a journey of friendship, exploration, and fun!</p>
+      <a href="#friends" class="cta-button">Meet the Friends</a>
+  </div>
+</section>
+
+<section id="friends" class="friends-section">
+  <h2>Our Amazing Friends</h2>
+  <div class="friends-container">
+      <% for(let friend of friends) { %>
+          <div class="friend-card" onclick="showFriendModal('<%= friend.name %>', '<%= friend.description %>', '<%= friend.image %>')">
+              <img src="<%= friend.image %>" alt="<%= friend.name %>">
+              <h3><%= friend.name %></h3>
+              <p><%= friend.shortDescription %></p>
+          </div>
+      <% } %>
+    
+  </div>
+</section>
+
+<section id="about" class="about-section">
+  <h2>About Us</h2>
+  <div class="about-content">
+    <img src="/image/frien1.jpg" alt="Friends of Five Group Photo" class="group-photo">
+    <p>Friends of Five is a close-knit group of friends who share a passion for adventure, learning, and helping each other grow. We believe in the power of friendship and the joy of life’s shared experiences.</p>
+  </div>
+</section>
+
+<section class="contact-section">
+  <h2>Contact Us</h2>
+  <form class="contact-form" action="/send-message" method="POST">
+    <div class="form-group">
+      <label for="name">Your Name</label>
+      <input type="text" id="name" name="name" placeholder="Enter your name" required>
+    </div>
+    <div class="form-group">
+      <label for="email">Your Email</label>
+      <input type="email" id="email" name="email" placeholder="Enter your email" required>
+    </div>
+    <div class="form-group">
+      <label for="message">Your Message</label>
+      <textarea id="message" name="message" rows="5" placeholder="Write your message" required></textarea>
+    </div>
+    <button type="submit" class="submit-btn">Send Message</button>
+  </form>
+</section>
+
+<!-- Friend Modal -->
+<div id="friendModal" class="modal">
+  <div class="modal-content">
+      <span class="close" onclick="closeModal()">&times;</span>
+      <img id="modal-img" src="" alt="Friend Image">
+      <h3 id="modal-name"></h3>
+      <p id="modal-description"></p>
+  </div>
+</div>
